@@ -14,7 +14,7 @@ session_start();
 
 require_once 'google-api-php-client-2.1.1/vendor/autoload.php';
 
-$credentials = 'google-api-php-client-2.1.1/json/client_secret_862237647527-q28bkscruu70dfrb6ek85fmd3g6afrft.apps.googleusercontent.com.json';
+$credentials = 'google-api-php-client-2.1.1/json/credentials.json';
 
 $client = new Google_Client();
 $client->setAuthConfig($credentials);
