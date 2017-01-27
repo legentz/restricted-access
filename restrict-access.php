@@ -26,6 +26,7 @@ $errorMessage = '';
 if (isset($_GET['logout'])) { 
     unset($_SESSION['token']);
 
+    $authUrl = $client->createAuthUrl();
     $errorMessage = 'Logged out.';
 
     // Show login page with errorMessage

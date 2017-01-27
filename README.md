@@ -22,5 +22,10 @@ Be sure you have **PHP >= 5.4**
 ### Login page
 Horrible example that have to be changed... But pay attention to php variables!
 
+### Logout
+It's possible to manually logout, if needed:
+
+> ?logout=true
+
 ### Live example
 > http://leandrogentili.me/swag-blog/
