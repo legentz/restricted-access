@@ -1,4 +1,4 @@
-<?php ?>
+<?php // Horrible example ?>
 	<!DOCTYPE html>
 	<html><!--<![endif]--><head>
 		
