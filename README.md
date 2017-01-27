@@ -15,7 +15,7 @@ Make sure you have placed all the files in the main Wordpress folder. By 'all th
 - restrict-access.php
 
 Move credentials.json into:
-> google-api-php-client-2.1.1/json
+> google-api-php-client-2.1.1/json/credentials.json
 
 Be sure you have **PHP >= 5.4**
 
