@@ -10,7 +10,7 @@
 // PHP MUST BE >= 5.4
 // echo phpversion();
 error_reporting(E_ALL ^ E_NOTICE);  // Avoid notice
-ini_set('max_execution_time', 100);
+// ini_set('max_execution_time', 100);
 
 session_start();
 
@@ -86,6 +86,8 @@ function checkTokenHealth ($token) {
 
 // logout: destroy token
 if (isset($_GET['logout'])) {
+	$client->revokeToken();
+
 	showLogin($LOGOUT_MESSAGE);
 }
 
