@@ -4,15 +4,15 @@ Restrict access of a Wordpress based website using the Google Sign-In button and
 
 ### Make it works
 
-Add this line right after the **<?php** declaration:
+**Inside Wordpress main index.php** add this line right after the **<?php** declaration:
 ```
 require( dirname( __FILE__ ) . '/restrict-access.php' );
 ```
 
 Make sure you have placed all the files places as mentioned by their folder name.
 
-**Update the Redirect URI**, download and rename the JSON as below. Move it into:
-> google-api-php-client-2.1.1/json/credentials.json
+**Update the Redirect URI in Google Developer Console** then download and rename the JSON credentials file. Move it into:
+> google-api-php-client-2.1.1/json/credentials.json (there are 2 folder with this name!!)
 
 Be sure you have **PHP >= 5.4**
 
