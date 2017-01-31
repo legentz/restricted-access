@@ -9,12 +9,9 @@ Add this line right after the **<?php** declaration:
 require( dirname( __FILE__ ) . '/restrict-access.php' );
 ```
 
-Make sure you have placed all the files in the main Wordpress folder. By 'all the files' I mean:
-- google-api-php-client-2.1.1 (folder)
-- gapps-login.php
-- restrict-access.php
+Make sure you have placed all the files places as mentioned by their folder name.
 
-Move credentials.json into:
+**Update the Redirect URI**, download and rename the JSON as below. Move it into:
 > google-api-php-client-2.1.1/json/credentials.json
 
 Be sure you have **PHP >= 5.4**
@@ -27,5 +24,7 @@ It's possible to manually logout, if needed:
 
 > ?logout=true
 
-### Live example
-> http://leandrogentili.me/swag-blog/
+### Flow
+Blog (local) -> Google Sign-in (public) ->
+Redirect URI (public) -> Auth by the public server (the one who's called by the Redirect URI) ->
+Javascript link (public) -> window.open() (local) -> Blog (local) or Error
