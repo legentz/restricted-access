@@ -10,7 +10,7 @@
 // PHP MUST BE >= 5.4
 // echo phpversion();
 error_reporting(E_ALL ^ E_NOTICE);  // Avoid notice
-ini_set('max_execution_time', 300); // 5 minutes
+ini_set('max_execution_time', 100);
 
 session_start();
 
@@ -23,6 +23,7 @@ $SCOPE = 'email';
 $LOGOUT_MESSAGE = 'Logged out.';
 $NOT_ALLOWED_MESSAGE = 'You\'re not allowed. Domain not recognized.';
 $TOKEN_ERROR = 'Something went wrong contacting Google.';
+$EXPIRED_SESSION = 'Expired session';
 // END
 
 // Init
@@ -45,6 +46,28 @@ function showLogin ($message = null) {
 
     require_once 'gapps-login.php';
 	die;
+}
+
+function tokenExpired ($token) {
+	if (!isset($token)) {
+		return true;
+	}
+
+	$created = $token['created'];
+	$expires_in = $token['expires_in'];
+
+	// echo time();
+	// echo '<br>';
+	// echo $created;
+	// echo '<br>';
+	// echo $expires_in;
+	// echo '<br>';
+	// echo time() - ($created + $expires_in);
+	// echo '<br>';
+	// echo (time() - ($created + $expires_in)) >= 0;
+	// echo '<br>';
+
+	return (time() - ($created + $expires_in)) >= 0;
 }
 
 function checkTokenHealth ($token) {
@@ -85,6 +108,10 @@ if (isset($_GET['token']) || isset($_SESSION['token'])) {
 
 		$token = $_SESSION['token'];
 
+	}
+
+	if (tokenExpired($token)) {
+		showLogin($EXPIRED_SESSION);
 	}
 
 	// Check if $token, last time...
